@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>The DOM tree</title>
+</head>
+<body>
+<div id="div1"></div>
+<!--comment-->
+<div id="div2"></div>
+<div id="div3"></div>
+
+<script>
+    //childNodes[] ie8 do not count empty text node
+    var childNodes = document.body.childNodes;
+    console.log('childNodes.length = ' + childNodes.length);    //8
+    console.log('childNodes[1].id = ' + childNodes[1].id);    //div1
+
+    //children[] ie8 incorrect count comment node
+    var children = document.body.children;
+    console.log('children.length = ' + children.length);    //4
+    console.log('children[1].id = ' + children[1].id);    //div1
+
+    //childElementCount
+    console.log('childElementCount = ' + document.body.childElementCount);
+
+    //hasChildNodes() Returns true when node x has child nodes; false when it hasn't.
+    console.log('document.body.hasChildNodes() = ' + document.body.hasChildNodes());
+
+    //firstChild ie8 do not count empty text node
+    console.log('document.body.firstChild.nodeName = ' + document.body.firstChild.nodeName);    //#text
+
+    //firstElement ie9+ support
+    console.log('document.body.firstElementChild.nodeName = ' + document.body.firstElementChild.nodeName);    //DIV
+
+    //lastChild ie8 do not count empty text node
+    console.log('document.body.lastChild.nodeName = ' + document.body.lastChild.nodeName);    //#comment
+
+    //lastElementChild ie9+ support
+    console.log('document.body.lastElementChild.nodeName = ' + document.body.lastElementChild.nodeName);    //script
+
+    //nextSibling ie8 do not count empty text node
+    console.log('document.getElementById("div1").nextSibling.nodeName = ' + document.getElementById("div1").nextSibling.nodeName);  //#text
+
+    //nextElementSibling ie9+
+    console.log('document.getElementById("div1").nextElementSibling.nodeName = ' + document.getElementById("div1").nextElementSibling.nodeName); //DIV
+
+    //previousSibling ie8 do not count empty text node
+    console.log('document.getElementById("div2").previousSibling.nodeName = ' + document.getElementById("div2").previousSibling.nodeName);  //#text
+
+    //previousElementSibling ie9+
+    console.log('document.getElementById("div2").previousElementSibling.nodeName = ' + document.getElementById("div2").previousElementSibling.nodeName);  //DIV
+
+    //parentNode
+    console.log('document.getElementById("div1").parentNode.nodeName = ' + document.getElementById("div1").parentNode.nodeName);  //BODY
+
+    //parentElement need not to use this, only use parentNode
+
+</script>
+<!--comment-->
+</body>
+</html>
