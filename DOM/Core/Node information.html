@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Node information</title>
+</head>
+<body>
+
+<div id="div1"><!--comment-->text</div>
+<script>
+    //nodeName TagName attrName #text #comment  #document
+    var div1_nodeName = document.getElementById('div1');
+    console.log('div1_nodeName.nodeName = ' + div1_nodeName.nodeName);  //DIV AUTO-UPPERCASE
+    console.log('document.nodeName = ' + document.nodeName);            //#document
+    var id_attr = document.getElementById('div1').getAttributeNode('id');
+    console.log('id_attr.nodeName = ' + id_attr.nodeName);  //id
+    var comment = document.getElementById('div1').childNodes[0];
+    console.log('comment.nodeName = ' + comment.nodeName);          //#comment
+    var text = document.getElementById('div1').childNodes[1];
+    console.log('text.nodeName = ' + text.nodeName);    //#text
+
+    //nodeType 1 2 3 8 9
+    var div1_nodeType = document.getElementById('div1');
+    console.log('div1_nodeType.nodeType = ' + div1_nodeType.nodeType);  //1
+    console.log('document.nodeType = ' + document.nodeType);            //9
+    var id_attr = document.getElementById('div1').getAttributeNode('id');
+    console.log('id_attr.nodeType = ' + id_attr.nodeType);  //2
+    var comment = document.getElementById('div1').childNodes[0];
+    console.log('comment.nodeType = ' + comment.nodeType);          //8
+    var text = document.getElementById('div1').childNodes[1];
+    console.log('text.nodeType = ' + text.nodeType);    //3
+
+    //nodeValue only attr text comment support
+    var id_attr = document.getElementById('div1').getAttributeNode('id');
+    console.log('id_attr.nodeValue = ' + id_attr.nodeValue);  //div1
+    var comment = document.getElementById('div1').childNodes[0];
+    console.log('comment.nodeValue = ' + comment.nodeValue);          //comment
+    var text = document.getElementById('div1').childNodes[1];
+    console.log('text.nodeValue = ' + text.nodeValue);    //text
+
+    //tagName only elemnt support
+    var div1_tagName = document.getElementById('div1');
+    console.log('div1_tagName.tagName = ' + div1_tagName.tagName);  //DIV AUTO-UPPERCASE
+</script>
+
+</body>
+</html>

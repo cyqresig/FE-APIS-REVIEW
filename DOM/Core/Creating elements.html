@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Creating elements</title>
+</head>
+<body>
+<script>
+    //createElement
+    var new_div = document.createElement('div');
+    new_div.innerHTML = 'new div';
+    document.body.insertBefore(new_div, null);
+
+    //createTextNode
+    var new_text = document.createTextNode('new text');
+    document.body.appendChild(new_text);
+
+    //Text only chrome29+
+    var new_chrome_text = new Text('new_chrome_text');
+    document.body.insertBefore(new_chrome_text, null);
+</script>
+</body>
+</html>
